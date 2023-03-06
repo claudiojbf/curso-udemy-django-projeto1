@@ -1,9 +1,5 @@
 import os
 
-from django.shortcuts import get_object_or_404, render
-
-from app.recipes.models import Recipe
-
 # from utils.recipes.factory import make_recipe
 
 PER_PAGE = int(os.environ.get('PER_PAGE', 6))
@@ -38,13 +34,13 @@ PER_PAGE = int(os.environ.get('PER_PAGE', 6))
 #     })
 
 
-def recipe(request, id):
-    # recipe = Recipe.objects.filter(id=id).first()
-    recipe = get_object_or_404(Recipe, pk=id, is_published=True)
-    return render(request, 'recipes/pages/recipe-view.html', context={
-        'recipe': recipe,
-        'is_detail_page': True,
-    })
+# def recipe(request, id):
+#     # recipe = Recipe.objects.filter(id=id).first()
+#     recipe = get_object_or_404(Recipe, pk=id, is_published=True)
+#     return render(request, 'recipes/pages/recipe-view.html', context={
+#         'recipe': recipe,
+#         'is_detail_page': True,
+#     })
 
 
 # def search(request):
