@@ -35,7 +35,7 @@ class RecipeManager(models.Manager):
 
 
 class Recipe(models.Model):
-    object = RecipeManager()
+    objects = RecipeManager()
     title = models.CharField(max_length=65)
     description = models.CharField(max_length=165)
     slug = models.SlugField(unique=True)
@@ -73,7 +73,8 @@ class Recipe(models.Model):
     def clean(self, *args, **kwargs):
         error_messages = defaultdict(list)
 
-        recipe_from_db = Recipe.object.filter(title__iexact=self.title).first()
+        recipe_from_db = Recipe.objects.filter(
+            title__iexact=self.title).first()
 
         if recipe_from_db:
             if recipe_from_db.pk != self.pk:

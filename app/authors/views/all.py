@@ -9,7 +9,8 @@ from django.urls import reverse
 
 from app.authors.forms import LoginForm, RegisterForm
 from app.recipes.models import Recipe
-from utils.recipes.pagination import make_pagination
+
+# from utils.recipes.pagination import make_pagination
 
 PER_PAGE = int(os.environ.get('PER_PAGE', 6))
 
@@ -86,14 +87,43 @@ def logout_view(request):
 
 
 @login_required(login_url='authors:login', redirect_field_name='next')
+def dashboard111(request):
+    recipes = Recipe.objects.filter(
+        is_published=False,
+        author=request.user
+    )
+    return render(
+        request,
+        'authors/pages/dashboard.html',
+        context={
+            'recipes': recipes,
+        }
+    )
+
+
+@login_required(login_url='authors:login', redirect_field_name='next')
 def dashboard(request):
     recipes = Recipe.objects.filter(
-        is_published=False, author=request.user).order_by('-id')
-    page_obj, pagination_range = make_pagination(request, recipes, PER_PAGE)
-    return render(request, 'authors/pages/dashboard.html', {
-        'recipes': page_obj,
-        'pagination_range': pagination_range,
-    })
+        is_published=False,
+        author=request.user
+    )
+
+    return render(
+        request,
+        'authors/pages/dashboard.html',
+        context={
+            'recipes': recipes,
+        }
+    )
+
+# def dashboard(request):
+#     recipes = Recipe.objects.filter(
+#         is_published=False, author=request.user).order_by('-id')
+#     page_obj, pagination_range = make_pagination(request, recipes, PER_PAGE)
+#     return render(request, 'authors/pages/dashboard.html', {
+#         'recipes': page_obj,
+#         'pagination_range': pagination_range,
+#     })
 
 
 # @login_required(login_url='authors:login', redirect_field_name='next')
