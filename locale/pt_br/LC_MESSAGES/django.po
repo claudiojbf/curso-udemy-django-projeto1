@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-17 13:54-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\app\recipes\models.py:40
+msgid "Title"
+msgstr "Título"
+
+#: .\app\recipes\models.py:90
+msgid "Recipe"
+msgstr "Receita"
+
+#: .\app\recipes\models.py:91
+msgid "Recipes"
+msgstr "Receitas"
+
+#: .\app\recipes\templates\recipes\partials\recipe.html:56
+msgid "Preparation"
+msgstr "Preparo"
+
+#: .\app\recipes\templates\recipes\partials\recipe.html:62
+msgid "Servings"
+msgstr "Porções"
+
+#: .\app\recipes\templates\recipes\partials\recipe.html:73
+msgid "read more"
+msgstr "ler mais"
+
+#: .\app\recipes\views\recipe_list.py:76
+msgid "Category"
+msgstr "Categoria"
